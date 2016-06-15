@@ -155,6 +155,7 @@ module CarrierWave
         end
 
         def #{column}_cache=(cache_name)
+          #{column}_will_change!
           _mounter(:#{column}).cache_names = [cache_name]
         end
 
@@ -305,6 +306,7 @@ module CarrierWave
         end
 
         def #{column}_cache=(cache_name)
+          #{column}_will_change!
           _mounter(:#{column}).cache_names = JSON.parse(cache_name) if cache_name.present?
         end
 
